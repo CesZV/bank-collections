@@ -6,10 +6,10 @@ import java.util.Set;
 public class BankAcount {
     private String iban;
     private String nif;
-    private  int balance;
-    private Set<Integer> accountsByIban;
+    private  double balance;
+    private Set<String> accountsByIban;
 
-    public BankAcount(String iban, String nif, int balance, Set<Integer> accountsByIban) {
+    public BankAcount(String iban, String nif, double balance, Set<String> accountsByIban) {
         this.iban = iban;
         this.nif = nif;
         this.balance = balance;
@@ -32,19 +32,19 @@ public class BankAcount {
         this.nif = nif;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
-    public Set<Integer> getAccountsByIban() {
+    public Set<String> getAccountsByIban() {
         return accountsByIban;
     }
 
-    public void setAccountsByIban(Set<Integer> accountsByIban) {
+    public void setAccountsByIban(Set<String> accountsByIban) {
         this.accountsByIban = accountsByIban;
     }
 
@@ -53,7 +53,7 @@ public class BankAcount {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BankAcount that = (BankAcount) o;
-        return balance == that.balance && Objects.equals(iban, that.iban) && Objects.equals(nif, that.nif) && Objects.equals(accountsByIban, that.accountsByIban);
+        return Double.compare(balance, that.balance) == 0 && Objects.equals(iban, that.iban) && Objects.equals(nif, that.nif) && Objects.equals(accountsByIban, that.accountsByIban);
     }
 
     @Override
